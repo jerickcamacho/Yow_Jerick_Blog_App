@@ -1,0 +1,39 @@
+
+<html> 
+    <head>
+     
+    </head>
+
+    <h1>Whistleblower lists of HUGOT LINES</h1> 
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Text</th>
+            <th>Time created</th>
+        </tr>
+
+        <% @articles.each do |article| %>
+
+        <tr>
+            <td><%= article.title %></td>
+            <td><%= article.author %></td>
+            <td><%= article.text %></td>
+            <td><%= article.created_at %></td>
+            <td class = "show"><%= link_to 'Show', article_path(article) %></td>
+            <td class = "edit"><%= link_to 'Edit', edit_article_path(article) %></td>
+            <td class = "delete"><%= link_to 'Delete', article_path(article), 
+                    method: :delete,
+                    data: {confirm: 'Do you want to delete?'} %></td>
+        </tr>
+    <% end %> 
+    </table> 
+
+    <footer>Allrights Reserved: A Short Love Story</footer>
+
+</html>
+
+<div class = "new_article">
+<%= link_to 'New article', articles_new_path %> 
+</div>
